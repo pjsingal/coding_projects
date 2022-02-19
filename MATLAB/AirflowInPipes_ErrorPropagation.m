@@ -1,6 +1,6 @@
 %% 1. Generating Propagated Error Formulas
 
-% Eq. 1
+% Eq. 1 
 syms rho_air g h_manometer rho_h2o error_h_manometer
 V_outlet_incremental = (2*rho_h2o*g*h_manometer/rho_air)^0.5;
 error_V_outlet_incremental = abs(diff(V_outlet_incremental,h_manometer)...
