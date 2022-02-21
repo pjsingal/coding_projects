@@ -23,12 +23,9 @@ The client microcontroller receives and reconstructs data packets that have been
 
 ##### 2b. "ICP_LoRa_Server" [In Progress]
 The server microcontroller collects pressure data via an ICP sensor and transmits them as 8-bit packets to the client via an attached LoRa breakout board. The server has a waterproof casing and is embedded directly within the submerged airfoil.
-<<<<<<< HEAD
 
 ## MATLAB
 ### 1. "BrinkmanEquations_CodeLifeVentilatorChallenge"
 In March 2020, I collaborated with a team of professional engineers to develop the "AirMax DMV", a low-cost, oxygen-generating mechanical ventilator intended to address shortages caused by COVID-19 in developing countries. Our design ranked in the top 65 of 1,029 international submissions at the Code Life Ventilator Challenge. This ventilator design was unique in that it supplemented the oxygen supplied by canisters with that derived from ambient air. This was accomplished by passing ambient air through cylinders of porous zeolite material, which could extract N2 and leave behind a gas of extremely high O2 content.
 
 Preliminary attempts were made to model the rate of zeolite N2 adsorption and compute the resultant O2 concentration. This MATLAB program aimed to derive a mathematical model based on the Darcy-Brinkman equations, which concern flow through porous media. Once the necessary coefficients had been calculated, a CFD simulation of these equations could be conducted. However, this effort never progressed beyond the MATLAB stage due to timeline constraints. 
-=======
->>>>>>> 426c3630420f4db47904d836525e39e7abd73aef
