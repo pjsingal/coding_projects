@@ -22,4 +22,4 @@ The programs shown below are very much works in progress. I am currently reworki
 The client microcontroller receives and reconstructs data packets that have been transmitted by the server. Despite the name, the client is attached to a long-range (LoRa) radio breakout board but not an ICP pressure sensor. This component will be located outside of the towing tank and wired directly into the lab computer. 
 
 #### 2b. "ICP_LoRa_Server" [In Progress]
-The server microcontroller collects pressure data via an ICP sensor and transmits them as 8-bit packets to the client via an attached LoRa breakout board. The server has a waterproof casing and is embedded directly within the submerged airfoil.  
+The server microcontroller collects pressure data via an ICP sensor and transmits them as 8-bit packets to the client via an attached LoRa breakout board. The server has a waterproof casing and is embedded directly within the submerged airfoil.
