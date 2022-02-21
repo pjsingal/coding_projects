@@ -9,7 +9,7 @@ In this program, the LynxBot follows a wall, turns a corner, follows another wal
 of maximum light (a lamp), drives forward, and then stops to reorient itself ~1m away from the light source. Finally, the LynxBot approaches the 
 light, turns 180º, and then reverses to block it (a cardboad "blocker" has been fixed to the LynxBot's rear).
 
-### 2. "Rival Lab Radio-Enabled ICP Pressure Transducer"
+### 2. "Rival Lab Radio-Enabled ICP Pressure Transducer [In Progress]"
 I am a researcher in Queen's University's Rival Lab, which focuses on experimental fluid dynamics. We have been running towing tank experiments on airfoils across a range of boundary conditions to collect edata for training a predictive alforithm for sparse pressure data in gusty, turbulent flows.  
 
 However, these data acquisition efforts have been hampered by noisy and high-error pressure readings. The current pressure transducers are located above the towing tank and connected to channels embedded within the airfoil by tubing. 
@@ -18,11 +18,9 @@ To solve this issue, I am programming, assembling, and validating a new high-pre
 
 The programs shown below are very much works in progress. I am currently reworking their C++ reference libraries to eliminate redundancies and improve processing speed.
 
-##### 2a. "ICP_LoRa_Client" [In Progress]
-The client microcontroller receives and reconstructs data packets that have been transmitted by the server. Despite the name, the client is attached to a long-range (LoRa) radio breakout board but not an ICP pressure sensor. This component will be located outside of the towing tank and wired directly into the lab computer. 
+2a. "ICP_LoRa_Client" The client microcontroller receives and reconstructs data packets that have been transmitted by the server. Despite the name, the client is attached to a long-range (LoRa) radio breakout board but not an ICP pressure sensor. This component will be located outside of the towing tank and wired directly into the lab computer. 
 
-##### 2b. "ICP_LoRa_Server" [In Progress]
-The server microcontroller collects pressure data via an ICP sensor and transmits them as 8-bit packets to the client via an attached LoRa breakout board. The server has a waterproof casing and is embedded directly within the submerged airfoil.
+2b. "ICP_LoRa_Server" The server microcontroller collects pressure data via an ICP sensor and transmits them as 8-bit packets to the client via an attached LoRa breakout board. The server has a waterproof casing and is embedded directly within the submerged airfoil.
 
 ## MATLAB
 ### 1. "BrinkmanEquations_CodeLifeVentilatorChallenge"
