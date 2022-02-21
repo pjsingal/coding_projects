@@ -18,8 +18,16 @@ To solve this issue, I am programming, assembling, and validating a new high-pre
 
 The programs shown below are very much works in progress. I am currently reworking their C++ reference libraries to eliminate redundancies and improve processing speed.
 
-#### 2a. "ICP_LoRa_Client" [In Progress]
+##### 2a. "ICP_LoRa_Client" [In Progress]
 The client microcontroller receives and reconstructs data packets that have been transmitted by the server. Despite the name, the client is attached to a long-range (LoRa) radio breakout board but not an ICP pressure sensor. This component will be located outside of the towing tank and wired directly into the lab computer. 
 
-#### 2b. "ICP_LoRa_Server" [In Progress]
+##### 2b. "ICP_LoRa_Server" [In Progress]
 The server microcontroller collects pressure data via an ICP sensor and transmits them as 8-bit packets to the client via an attached LoRa breakout board. The server has a waterproof casing and is embedded directly within the submerged airfoil.
+
+## MATLAB
+### 1. "BrinkmanEquations_CodeLifeVentilatorChallenge"
+In March 2020, I collaborated with a team of professional engineers to develop the "AirMax DMV", a low-cost, oxygen-generating mechanical ventilator intended to address shortages caused by COVID-19 in developing countries. Our design ranked in the top 65 of 1,029 international submissions at the Code Life Ventilator Challenge. 
+
+Our ventilator design was unique in that it supplemented the oxygen supplied by canisters with that derived from ambient air. This was accomplished by passing ambient air through cylinders of porous zeolite material, which could extract N2 and leave behind a gas of extremely high O2 content.
+
+Preliminary attempts were made to model the rate of zeolite N2 adsorption and compute the resultant O2 concentration. This MATLAB program aimed to derive a mathematical model based on the Darcy-Brinkman equations, which concern flow through porous media. Once the necessary coefficients had been calculated, a CFD simulation of these equations could be conducted. However, this effort never progressed beyond the MATLAB stage due to timeline constraints. 
