@@ -1,133 +1,131 @@
 % "Dr. Baccarat"
 
-close all
+% Exploring the effect of initial bet and number of rounds played on 
+% expected value when employing the Martingale betting strategy for
+% Baccarat. In the Martingale strategy, the player bets a certain initial
+% amount, P. If they win a round, then they bet P again for the next round.
+% If they lose a round, then they bet 2*P in the next round. If they lose
+% again, then they bet 2*2*P in the next round. This doubling strategy 
+% continues until a hand has been won. Once they eventually win again, 
+% then the player reverts to betting P in the next round. With infinite
+% availability of funds, this strategy would theoretically ensure that a
+% player never experiences a net loss in the long run (because the
+% probability of losing an infinite number of hands in a row is zero). 
+% In practice, however, the availability of funds is constrained by
+% whatever amount the player decides is the most that they are willing to
+% risk (their "stopgap").
 
-% syms P
-% n1 = P;
-% n2 = 2*n1+P;
-% n3 = 2*n2 + P;
-% n4 = 2*n3+P;
-% n5 = 2*n4 + P;
-% n6 = 2*n5 + P;
-% n7 = 2*n6 + P;
-% n8 = 2*n7 + P;
-% n9 = 2*n8 + P;
-% n1, n2, n3, n4, n5, n6, n7, n8, n9
+% This program aims to determine whether there exists an optimal initial 
+% bet (P) and number of rounds to play (n) at which the probability 
+% of losing all n rounds becomes so remote that the player becomes more 
+% likely to experience a net gain rather than lose everything (expected 
+% value > 0). The analysis also accounts for the fact that a player is only 
+% willing to sustain a certain maximum amount of total losses before quitting
+% (stopgap = $1,000). Thus, the maximum number of consecutive rounds that
+% a player could engage in depends on the size of their base (initial) 
+% betting amount, P. If P = $1,000 then the potential for short-term payoff 
+% is much greater but they would only be able to sustain up to n=1 losses 
+% before reaching their stopgap and having to quit. Thus, the odds of them
+% experiencing a net loss is 50%. If P = $1, however, then the potential for
+% short-term payoff is very small but they would need to sustain a huge
+% (and, statistically, nearly impossible) number of consecutive losses 
+% before reaching their stopgap. This program intends to discover whether
+% there exists an optimal balance between the revenue-generating benefits of
+% high P and the game-prolonging benefits of low P that maximizes expected
+% value in the medium-to-long term.
+
+close all
 
 % Generating matrix of discrete data points
 syms n i j
-stopgap = 1000;
-% P = linspace(0,100,600);
+
+% Define array of potential initial bets (P), in dollars
 P = [2.5, 5, 10, 15, 25, 50, 75, 100, 150, 200, 250, 300, 350, 400, 500, 600];
-step = 0.001; % For spline
 
+% Set up quasi-continuous array of x-vals that spans the entire range btwn 
+% the lowest and highest possible initial bet (P) [2.5, 600]. This array 
+% will serve as the independent variable when plotting splines later on.
+step = 0.001;
 rangemax = length(P);
-xx1 = 0:step:rangemax; % For spline
+xx1 = 0:step:rangemax;
 
-A = zeros(length(P) + 1, rangemax);
-AA = zeros(length(P) + 1, length(xx1));
-B = zeros(2, rangemax);
-BB = zeros(length(P) + 1, length(xx1));
+% A single letter (A or B) denotes empty matrix to later store discrete 
+% data w.r.t. each index of P (length of P = 16)
+A = zeros(length(P) + 1, rangemax); % 17 rows; 16 cols (extra row will contain our independent variables as a "header")
+B = zeros(2, rangemax); % 2 rows; 16 cols
+
+% A double letter (AA or BB) denotes empty matrix to later store 
+% quasi-continuous data w.r.t. each index of xx1,
+AA = zeros(length(P) + 1, length(xx1)); % 17 rows; 16001 cols
 
 j = 1;
-
-% labels = [{'P = $2.5'}, {'P = $5'}, {'P = $10'}, {'P = $15'}, {'P = $20'}, {'P = $25'}, {'P = $30'}, {'P = $35'}];
-
-nMaxArray = zeros(1,length(P));
-full_lossArray = zeros(1,length(P));
+stopgap = 1000; % max amount of dollars lost you are willing to sustain before quitting the game
+nMaxArray = zeros(1,length(P)); % max # of consecutive rounds lost allowed, based on initial bet P and chosen stopgap
 EVArray = zeros(1,length(P));
 
-figure(1)
-while j <= length(P)
-    for n=1:rangemax
-            f = P(j)*((2^i)- 1);
-            V = subs(f, i, 1:n);
-            loss = sum(V);
-            A(1,n)=n;
-            A(j+1,n)=loss;
+figure(1) % cum. amount lost (sumLoss) vs. # of consecutive losses (n)
+while j <= length(P) % each loop iter considers a different initial bet P_j
+    for n=1:rangemax % considers up to 16 consec losses
+            f = P(j)*((2^i)- 1); % amount of money lost for i losses in a row (e.g. amount lost if i = 5th loss in a row)
+            V = subs(f, i, 1:n); % substitute i with the total range of n consec. losses being considered per iter [1,n], so that f is computed n times for each iter of this "for" loop
+            sumLoss = sum(V); % adds all n calculations of f to get total amount lost after a given number of consecutive losses have been sustained. 
+            A(1,n)=n; % "header" row contains range of independent variable, num. of consec. losses (n) [1, n]
+            A(j+1,n)=sumLoss; %each additional row below header relates to one initial bet, P_j, and each column in that row denotes the value of sumLoss after n losses
     end
-    
-    % For spline:
+
+    % Fill in one row of AA with splined values based on the data in the corresponding row of A
     x1 = A(1,:);
     y1 = A(j+1,:);
     yy1 = spline(x1,y1,xx1);
     AA(1,:) = xx1;
     AA(j+1,:) = yy1;
-%     AA_local = AA(j+1,:); 
-    plot(x1,y1,'o',xx1,yy1)
+    plot(x1,y1,'o',xx1,yy1) % Plot quasi-continuous and discrete results w.r.t. a given initial bet, P_j
     hold on
     
+    % Compute the maximum number of consec. losses (nMax) that can be sustained
+    % for a given initial bet, P_j
     AA_local = zeros(2, length(xx1));
     AA_local(1,:)= AA(1,:);
     AA_local(2,:)= AA(j+1,:);
     [W,V] = find(AA_local==min(AA_local(AA_local>=stopgap)));
-    nMax = (V-1)*step; % This is the final result we wanted 
-%     fprintf('Max. number of losses allowed for P = $%.0d: %.3f\n',P(j),nMax)
-    
+    nMax = (V-1)*step;
     nMaxArray(1,j)=nMax;
-    
-%     
-%     AA_local = AA(j+1,:);
-%     [I,J] = find(AA_local==stopgap);
-% %     [I,J] = find(AA==min(AA(AA>=stopgap)));
-%     nMax = (J-1)*step; % This is the final result we wanted
-% %     scatter(find(AA==nMax),nMax, 'markersize', 215)
-    
-    % Expected value
-    q = 0.5; % Probability to lose a single game
-    full_lossArray(1,j) = q^(nMax); % Probability to lose and reach your stopgap 
-    EVArray(1,j) = P(j)*(1-q^nMax)-stopgap*q^nMax;
-%     full_loss*100;
+    fprintf('At P = $%d: max. number of consecutive losses allowed = %.3f\n\n', P(j),nMaxArray(1,j));
 
-   % fprintf('At P = $%d:\n Maximum number of consecutive losses allowed = %.3f\n Probability of reaching stopgap in one streak = %.3f\n Expected value = $%.2f \n\n\n', P(j), nMaxArray(1,j), EVArray(1,j));
-    fprintf('At P = $%d: max. number of consecutive losses allowed = %.3f\n', P(j),nMaxArray(1,j));
-    fprintf('\n');
-    
+    % Compute the overall expected value for a given initial bet, P_j
+    q = 0.5; % Probability to lose a single game
+    prob_fullLoss = q^(nMax); % Probability to lose every single game (and thus reach your stopgap)
+    EVArray(1,j) = P(j)*(1-prob_fullLoss)-stopgap*q^nMax;
+
     j = j+1;
 end
 
-%legend(labels, 'Location', 'northwest');
-%format shortG
-
-
+% Formatting figure(1)
 xlabel('Number of Consecutive Losses (n)');
 ylabel('Cumulative Amount Lost ($)');
-% legend(labels, 'Location', 'northwest');
 format shortG
 
-B(1,:)=P;
-B(2,:)=EVArray;
+% Fill matrix B with expected value data
+B(1,:)=P; % "header" row contains range of independent variable, initial bet (P) [2.5, 600]
+B(2,:)=EVArray; % EV values previously calculated w.r.t. each value P_j
 
-figure(2)
+% Generate splined values based on the data in row 2 of B
 xx2 = 0:step:max(P);
 x2 = B(1,:);
 y2 = B(2,:);
 yy2 = spline(x2,y2,xx2);
+
+figure(2) % Plot expected value vs. base (initial) bet (P)
 plot(x2,y2,'o',xx2,yy2);
-% scatter(x2,y2);
-%     yy2 = spline(x2,y2,xx);
-%     BB(j+1,:) = yy2;
-
-%     plot(x2,y2,'o',xx,yy2)
-%     plot(nMaxArray(1,k),EVArray(1,k))
 hold on
-
-% k = 1;
-% while k<=length(P)
-%     x2 = B(1,k);
-%     y2 = B(2,k);
-%     scatter(x2,y2);
-% %     yy2 = spline(x2,y2,xx);
-% %     BB(j+1,:) = yy2;
-% 
-% %     plot(x2,y2,'o',xx,yy2)
-% %     plot(nMaxArray(1,k),EVArray(1,k))
-%     hold on
-% end
-
 xlabel('Base Bet ($)');
 ylabel('Expected Value ($)');
 
+
+
+
+%% ______________________________________________________________________________________________
+%% [Unfinished Work] Determining the Optimal Number of Games to Play
 
 q = 0.5; % probability of loss
 p = 0.5; % probability of win
@@ -139,27 +137,15 @@ while k<=length(P)
     k = k+1;
 end
 
-
 xx3 = 0:step:length(P);
 x3 = numgames(1,1:length(P));
 y3 = numgames(2,1:length(P));
 yy3 = spline(x3,y3,xx3); % interpolated numgames
 
-% CC = zeros(2,length(xx3));
-% CC(1,:)=xx3;
-% CC(2,:)=yy3;
-% % Interpolated numgames
-
-% AA_CC = zeros(length(P)+1, length(xx3));
-% AA_CC(1,:)=AA(1,:);
-% AA_CC(2,:)=AA(2,:); %
-% AA_CC(3,:)=CC(2,:); % number of games played before an n-loss streak occurs
-
 xx4 = 0:step:length(P);
 x4 = P(1,:);
 y4 = nMaxArray(1,:);
 yy4 = spline(x4,y4,xx4); % interpolated n-max values for each incremental P
-
 
 pnMax = zeros(2,length(xx4));
 pnMax(1,:) = xx4; % P
@@ -168,7 +154,6 @@ pnMax(2,:) = yy4; % nMax given P
 splineNumgames = zeros(2,length(xx4));
 splineNumgames(1,:) = xx4; % number of consecutive games
 splineNumgames(2,:) = yy3; % # of games to be played to get n consecutive
-
 
 % figure(3)
 % plot(optimgames(1,:), optimgames(2,:))
