@@ -1,4 +1,4 @@
-# Coding Project
+# Coding Projects
 This repository contains select examples of coding projects written in Python, MATLAB, Arduino language, and R. The website, "psingal.ca", however, was developed using the Svelte component framework and involved HTML, CSS, and JavaScript. All works were created solely by Patrick Singal unless otherwise noted.
 
 ## Arduino
@@ -37,7 +37,9 @@ Models a simplified version of the Queen's Vertical Farming Team's pressurized s
 
 ## Python
 ### 1. "Thermal-Management-Analysis-Capstone"
-dfgdsfgsdfg
+I developed this program during the early analysis stage of my group's capstone project. It takes tabular data related to the temperature and heat-generation rates of batteries inside an electric vehicle under different loading scenarios, and interprets it in the context of a simplified thermal management system (TMS). It then applies several thermodynamic assumptions to determine the chiller size that would induce optimal thermoregulation. While they reduced the complexity of calculation significantly, future analyses must remove certain thermodynamic assumptions that are unphysical. This simplified TMS considered here consists of a basic coolant loop passing through batteries, a chiller, and a pump. It neglects other complexities and heat-generating components such as bypass branches, flow dividers, the motor, heater, DCDC converter, traction inverter, and air compressor.
+
+Please visit psingal.ca/projects to view our group's full (unsimplified) TMS design, and a more detailed description of its thermodynamics. A detailed Simulink model has also been created to represent this system (cannot be provided due to client confidentiality reasons). By April 2022, the aforementioned Python script will be updated to consider the full TMS (as opposed to just the "basic" loop) and its scope will be adjusted. Its mathematically derived results will then serve as a benchmark against which Simulink simulation outputs can be compared.
 
 ### 2. "Insult Generator"
 This program allows a user to randomly generate a desired number of insulting Shakespearean phrases. The desired number must be between 100 and 10,000 phrases (inclusive). All phrases take the form of "Thou [adjective] [adjective] [noun]!".
