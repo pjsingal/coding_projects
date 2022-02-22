@@ -1,11 +1,11 @@
 # Coding Projects
-This repository contains select examples of coding projects written in Python, MATLAB, Arduino language, and R. The website, "psingal.ca", however, was developed using the Svelte component framework and involved HTML, CSS, and JavaScript. All works were created solely by Patrick Singal unless otherwise noted.
+This repository contains select examples of coding projects written in Arduino, MATLAB, Python, R, and Svelte. All works were created by Patrick Singal unless otherwise noted.
 
 ## Arduino
 ### 1. "LynxBot_Reacts_to_Environment"
 LynxBots are small, motorized vehicles that are operated by on-board microcontrollers. We reconfigured the circuitry and added sensors to allow the LynxBot to efficiently navigate an obstacle course by sensing light and distance, and controlling angles of rotation.
 
-In this program, the LynxBot follows a wall, turns a corner, follows another wall, and then stops before colliding head-on into a third wall. The LynxBot then turns 90deg, follows that third wall, and stops after passing ~1m beyond that wall's end. The LynxBot orients itself in the direction 
+This program was co-created with my partner Riley Doyle. Here, the LynxBot follows a wall, turns a corner, follows another wall, and then stops before colliding head-on into a third wall. The LynxBot then turns 90deg, follows that third wall, and stops after passing ~1m beyond that wall's end. The LynxBot orients itself in the direction 
 of maximum light (a lamp), drives forward, and then stops to reorient itself ~1m away from the light source. Finally, the LynxBot approaches the 
 light, turns 180º, and then reverses to block it (a cardboad "blocker" has been fixed to the LynxBot's rear).
 
@@ -54,13 +54,13 @@ rgdfgdf
 This program analyzes three speeches: "PMHarperBerlinWall.txt", "PresObamaBerlinSpeech.txt", and "PresObamaInauguralAddress.txt". The program determines the longest word, ten most frequent words, and the number of characters (inc. spaces), words, unique words and sentences in each speech. Numerals are excluded from analysis but spelled-out numbers are still included. A full summary (ordered alphabetically) of the number of times each unique word is used in a speech is also saved as an independent .txt file. The most used word over 5 letters in length that occurs in all three speeches: people
 
 ### 6. "Truss Energy Optimizer"
-sdfgsdfg
+ Determines the material properties of elastonium, given length and stress/strain data for a random sample of 42 nominally equivalent rods. Plots the idealized structure of a 2D truss bridge composed entirely of elastonium. Plots the deformation of the structure under loading, which is the configuration at which truss energy is minimized. Determines the maximum loading that the structure can withstand before failure. Comments on the efficacy of elastonium as a material for bridges and other heavy structural applications.
 
 ### 7. "Weather Stats"
 This program analyzes Toronto monthly weather data between the years 1938 and 2018 (inclusive). The user is prompted to enter a valid month/year. The program will return the amount of rainfall [mm] that occurred in that month. The program identifies the highest/lowest temperature, rainfall, and snowfall that occurred in any single month, and the month in which that occurred. The program also displays the lowest/median/highest annual snowfall, and the year in which that occurred. It also displays the lowest/median/highest mean temperature that ooccurred in any single month, and the month in which that occurred. Lastly, the program computes the annual mean temperature for each year (excluding those w/ <12 months of data), and saves the results to a text file ("YearMeans.txt").
 
 ## R
-dsfgsdfgsdfg
+An assortment of weekly quizzes and problem sets completed as part of an introductory statistics course.
 
 ## psingal[dot]ca
-sfgtsdfgsdf
+I manually coded psingal.ca without using a website builder. It was developed using the Svelte component framework and involves HTML, CSS, and JavaScript. Much of the documentation and general structure can be credited to my friend Ross Hill, who developed qvft.ca, the website from which mine takes much inspiration.
