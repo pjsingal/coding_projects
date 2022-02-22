@@ -190,7 +190,6 @@ splineNumgames(2,:) = yy3; % # of games to be played to get n consecutive
 %     
 % C
 
-
 % figure(3)
 % xx3 = 0:step:length(P);
 % x3 = numgames(1,1:length(P));
