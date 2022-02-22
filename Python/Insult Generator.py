@@ -4,7 +4,7 @@
 # The desired number must be between 100 and 10,000 phrases (inclusive)
 # All phrases take the form of "Thou [adjective] [adjective] [noun]!"
 
-import random
+import random 
 import os
 
 package_dir = os.path.dirname(os.path.abspath("coding_projects"))
