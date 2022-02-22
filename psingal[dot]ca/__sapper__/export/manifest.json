@@ -1,0 +1,15 @@
+{
+  "background_color": "#ffffff",
+  "theme_color": "#afcb5b",
+  "name": "Queen's Vertical Farming Team",
+  "short_name": "QVFT",
+  "display": "minimal-ui",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "80x80",
+      "type": "image/png"
+    }
+  ]
+}
