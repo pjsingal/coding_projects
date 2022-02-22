@@ -68,7 +68,7 @@ def wordFreq(fname, rawSpeech) :                                                
         freq[i] = words.count(i)                                                        # adds num. of times each keyword occurs in original wordlist as that key's corresponding value in dict.
         
     newFname = fname[:len(fname)-4] + "WordFrequency.txt"                               # strips the original ".txt" file ending so that "WordFrequency.txt" can be added to the end instead
-    newfile = open(newFname, 'w')
+    newfile = open(PATH+newFname, 'w')
     for key,value in freq.items() :
         newfile.write(key + ' : ' + str(value) + '\n' )                                 # writes each key/value pair on its own line in the new file
     newfile.close()
