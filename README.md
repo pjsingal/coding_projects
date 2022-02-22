@@ -1,5 +1,5 @@
 # Coding Projects
-This repository contains select examples of coding projects written in Arduino, MATLAB, Python, R, and Svelte. All works were created by Patrick Singal unless otherwise noted.
+This repository contains select examples of coding projects written in Arduino/C++, MATLAB, Python, R, and Svelte. All works were created by Patrick Singal unless otherwise noted.
 
 ## Arduino/C++
 ### 1. [LynxBot Reacts to Environment](https://github.com/pjsingal/coding_projects/blob/main/Arduino/LynxBot_Reacts_to_Environment/LynxBot_Reacts_to_Environment.ino) 
