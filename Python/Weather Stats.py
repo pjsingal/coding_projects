@@ -8,6 +8,11 @@
 # It also displays the lowest/median/highest mean temperature that ooccurred in any single month, and the month in which that occurred.
 # Lastly, the program computes the annual mean temperature for each year (excluding those w/ <12 months of data), and saves the results to a text file ("YearMeans.txt").
 
+import os
+
+package_dir = os.path.dirname(os.path.abspath("coding_projects"))
+PATH = package_dir + "/Python/Datasets/"
+
 ## 1. FUNCTIONS PROVIDED BY ASSIGNMENT TEMPLATE
 def main():
     # Read the data
@@ -69,7 +74,7 @@ def main():
 def readData(filename):
     '''Reads the weather data from the supplied filename. The function returns a list of
 dictionaries, where each dictionary consists of the data for a particular month.'''
-    fileIn = open(filename, 'r')
+    fileIn = open(PATH+filename, 'r')
     allData = []
     line = fileIn.readline()
     while line != "":
@@ -225,7 +230,7 @@ It is assumed that each year from 1938 to 2012 has 12 months.'''
             meanTempData['meanTemp'] = round(sum(monthlyMeans)/12,2) # computes avg of all 12 monthly means, rounded to 2 decimal places
             allMeanTemp.append(meanTempData) # each element of the list allMeanTemp is its own dictionary {'year':##, 'meanTemp', ##}
 
-    newfile = open(filename, 'w')
+    newfile = open(PATH+filename, 'w')
     for i in range(len(allMeanTemp)) :
         year = allMeanTemp[i]['year']
         mean = allMeanTemp[i]['meanTemp']

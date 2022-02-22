@@ -8,6 +8,10 @@
 # The most used word over 5 letters in length that occurs in all three speeches: people
 
 import re
+import os
+
+package_dir = os.path.dirname(os.path.abspath("coding_projects"))
+PATH = package_dir + "/Python/Datasets/"
 
 def main() : 
     try:
@@ -31,7 +35,7 @@ def main() :
 
 
 def readFile(fname) :                                                                   # reads a text file and converts it to a string
-    file = open(fname,'r')
+    file = open(PATH+fname,'r')
     rawSpeech = file.read()
     rawSpeech = rawSpeech.replace('\n',' ')                                             # replaces linefeeds with spaces
     rawSpeech = rawSpeech.replace('-',' ')                                              # replaces hyphens with spaces   

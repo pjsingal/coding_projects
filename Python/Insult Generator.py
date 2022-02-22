@@ -5,6 +5,10 @@
 # All phrases take the form of "Thou [adjective] [adjective] [noun]!"
 
 import random
+import os
+
+package_dir = os.path.dirname(os.path.abspath("coding_projects"))
+PATH = package_dir + "/Python/Datasets/"
 
 def main() :
     random.seed()
@@ -18,7 +22,7 @@ def main() :
     displaySomeInsults(insults)
     saveInsults(insults)
     if checkInsultsFile() :
-        print("\n1000 insults properly saved. They are unique and in order.")
+        print("\n1000 insults properly saved in coding_projects/Python/Datasets. They are unique and in order.")
     else :
         print("\nThe insults are not properly generated or saved!")
     # Using all possible arguments and prompting the user for the number of insults.
@@ -28,7 +32,7 @@ def main() :
     displaySomeInsults(insults)
     saveInsults(insults, "Insults.txt")
     if checkInsultsFile(numInsults, "Insults.txt") :
-        print("\n" + str(numInsults) + " insults properly saved. They are unique and in order.")
+        print("\n" + str(numInsults) + " insults properly saved in coding_projects/Python/Datasets. They are unique and in order.")
     else :
         print("\nThe insults are not properly generated or saved!")
         
@@ -46,7 +50,7 @@ def getNumInsults():
     return val
 
 def readFile(fname) :                                                                       # Reads a text file and converts it to a list
-    inFile = open(fname, 'r')
+    inFile = open(PATH+fname, 'r')
     fileContentsList = []
     for line in inFile :                                                                    # Each element in list represents one line of text from original file
         fileContentsList.append(line.rstrip())
@@ -83,7 +87,7 @@ def displaySomeInsults(insults) :                                               
         print(elem)
 
 def saveInsults(insults, fname="Insults.txt") :                                             # Saves the list of insults to a text file, with each element of list written on its own line
-    newfile = open(fname, 'w')
+    newfile = open(PATH+fname, 'w')
     for elem in insults :
         newfile.write(elem + '\n')
     newfile.close()
