@@ -16,8 +16,6 @@ int YLW = 6;         //yellow LED Pin
 int servoPin = 12;    //servo connected to digital pin 12
 int myAngle;          //angle of the servo roughly 0-180
 int LIGHT = A0;     //photoresistor pin (can't be lowercase a0)
-
-
 int BUTTON_A = 7;
 int BUTTON_B = 8;
 int BUTTON_C = 9;
@@ -28,10 +26,8 @@ int SHARP1 = A1;   // sharp input pin
 int SHARP2 = A3;
 int sensor1;       // sharp sensor reading
 int sensor2;      //forward sharp
-
 int result;          //A to D value from photoresistor
 int mvresult;        //millivolt value for photoresistor
-
 int mvMid = 2850; // [mv] for 1.0m
 int HyMid = 600; // [mv] noise for 1.0m is ±300 mv
 int mvTarg = 4300; // [mv] for 1.0m
@@ -48,17 +44,14 @@ int light;
 int maxValLoc;
 int error1;  // comment
 int dummy;
-
 int insideWall = 2140;
-
 int flag;
 int WALL = 1100;       // 700 (40cm) for corridor, 1200 (20cm) for wall         ///Tune
 int STOP_SPEED = 149;  // 150 to begin
- int delta = 20;        // 15 to begin                                     ///Tune
- int HYS1  = 100;   // 50 as default for HYS1terisis                          ///Tune 
- int HYS2 = 200;
+int delta = 20;        // 15 to begin                                     ///Tune
+int HYS1  = 100;   // 50 as default for HYS1terisis                          ///Tune 
+int HYS2 = 200;
 float KP = 0.25;
-
 const int time90 = 980;
 const int time180 = 2500;
 
