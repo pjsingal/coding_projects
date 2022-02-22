@@ -41,7 +41,7 @@ I developed this program during the early analysis stage of my group's capstone 
 
 Please visit psingal.ca/projects to view our group's full (unsimplified) TMS design, and a more detailed description of its thermodynamics. A detailed Simulink model has also been created to represent this system (cannot be provided due to client confidentiality reasons). By April 2022, the aforementioned Python script will be updated to consider the full TMS (as opposed to just the "basic" loop) and its scope will be adjusted. Its mathematically derived results will then serve as a benchmark against which Simulink simulation outputs can be compared.
 
-### 2. [Insult Generator](https://github.com/pjsingal/coding_projects/blob/main/Python/Insult%20Generator.py)
+### 2. [Shakespearean Insult Generator](https://github.com/pjsingal/coding_projects/blob/main/Python/Insult%20Generator.py)
 This program allows a user to randomly generate a desired number of insulting Shakespearean phrases. The desired number must be between 100 and 10,000 phrases (inclusive). All phrases take the form of "Thou [adjective] [adjective] [noun]!".
 
 ### 3. [Mortgage Payments](https://github.com/pjsingal/coding_projects/blob/main/Python/Mortgage%20Payments.py)
