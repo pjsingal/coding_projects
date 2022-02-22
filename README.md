@@ -63,4 +63,4 @@ This program analyzes Toronto monthly weather data between the years 1938 and 20
 An assortment of weekly quizzes and problem sets completed as part of an introductory statistics course.
 
 ## psingal[dot]ca
-I manually coded psingal.ca without using a website builder. It was developed using the Svelte component framework and involves HTML, CSS, and JavaScript. Much of the documentation and general structure can be credited to my friend Ross Hill, who developed qvft.ca, the website from which mine takes much inspiration.
+This website was coded entirely manually using the Svelte component framework, which involves HTML, CSS, and JavaScript. Much of the documentation and general structure can be credited to my friend Ross Hill, who developed qvft.ca, the website from which mine takes much inspiration.
