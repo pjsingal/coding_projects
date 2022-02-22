@@ -47,16 +47,13 @@ This program allows a user to randomly generate a desired number of insulting Sh
 ### 3. "Mortgage Payments"
 This program allows a user to compute various metrics related to their mortgage. The user enters the principal amount borrowed, annual % interest rate, and term length, and then decides whether they would like to account for lump-sum anniversary payments as well. The output displays the remaining principal to-be-paid on a month-by-month basis, which declines from the principal amount borrowed in month 0 until it reaches $0.00 in month X. If anniversaries are NOT selected, then month X will coincide with the term length provided by the user. If anniversaries ARE selected, then month X will be reached before the term ends, and the user will be notified as to how many months early they have managed to pay their mortgage. The cumulative total interest, monthly payments, anniversary payments (if selected), and total mortgage cost will be printed as well. 
 
-### 4. "Numerical Methods Final Exam"
-rgdfgdf
-
-### 5. "Speech Analysis"
+### 4. "Speech Analysis"
 This program analyzes three speeches: "PMHarperBerlinWall.txt", "PresObamaBerlinSpeech.txt", and "PresObamaInauguralAddress.txt". The program determines the longest word, ten most frequent words, and the number of characters (inc. spaces), words, unique words and sentences in each speech. Numerals are excluded from analysis but spelled-out numbers are still included. A full summary (ordered alphabetically) of the number of times each unique word is used in a speech is also saved as an independent .txt file. The most used word over 5 letters in length that occurs in all three speeches: people
 
-### 6. "Truss Energy Optimizer"
+### 5. "Truss Energy Optimizer"
  Determines the material properties of elastonium, given length and stress/strain data for a random sample of 42 nominally equivalent rods. Plots the idealized structure of a 2D truss bridge composed entirely of elastonium. Plots the deformation of the structure under loading, which is the configuration at which truss energy is minimized. Determines the maximum loading that the structure can withstand before failure. Comments on the efficacy of elastonium as a material for bridges and other heavy structural applications.
 
-### 7. "Weather Stats"
+### 6. "Weather Stats"
 This program analyzes Toronto monthly weather data between the years 1938 and 2018 (inclusive). The user is prompted to enter a valid month/year. The program will return the amount of rainfall [mm] that occurred in that month. The program identifies the highest/lowest temperature, rainfall, and snowfall that occurred in any single month, and the month in which that occurred. The program also displays the lowest/median/highest annual snowfall, and the year in which that occurred. It also displays the lowest/median/highest mean temperature that ooccurred in any single month, and the month in which that occurred. Lastly, the program computes the annual mean temperature for each year (excluding those w/ <12 months of data), and saves the results to a text file ("YearMeans.txt").
 
 ## R
