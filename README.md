@@ -1,7 +1,7 @@
 # Coding Projects
 This repository contains select examples of coding projects written in Arduino, MATLAB, Python, R, and Svelte. All works were created by Patrick Singal unless otherwise noted.
 
-## Arduino
+## Arduino/C++
 ### 1. [LynxBot Reacts to Environment](https://github.com/pjsingal/coding_projects/blob/main/Arduino/LynxBot_Reacts_to_Environment/LynxBot_Reacts_to_Environment.ino) 
 LynxBots are small, motorized vehicles that are operated by on-board microcontrollers. We reconfigured the circuitry and added sensors to allow the LynxBot to efficiently navigate an obstacle course by sensing light and distance, and controlling angles of rotation.
 
